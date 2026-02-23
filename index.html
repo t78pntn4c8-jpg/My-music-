@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Universe 🌌</title>
+    <style>
+        :root {
+            --accent-pink: #ff007f;
+            --deep-dark: #0a0005;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            background-color: var(--deep-dark);
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            /* «Дышащий» градиент на фоне */
+            background: radial-gradient(circle at center, #2b001a 0%, #000 100%);
+            overflow-x: hidden;
+        }
+
+        /* Анимированные частицы (звезды) */
+        .particles {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background-image: 
+                radial-gradient(white, rgba(255,255,255,0) 2px),
+                radial-gradient(var(--accent-pink), rgba(255,0,127,0) 1px);
+            background-size: 50px 50px, 100px 100px;
+            animation: moveBackground 20s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes moveBackground {
+            from { background-position: 0 0; }
+            to { background-position: 500px 1000px; }
+        }
+
+        .profile-container {
+            width: 90%;
+            max-width: 450px;
+            margin-top: 60px;
+            z-index: 2;
+        }
+
+        /* Эффект дыхания для баннера */
+        .main-banner {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 0, 127, 0.3);
+            border-radius: 35px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 0 50px rgba(255, 0, 127, 0.2);
+            animation: breathe 4s ease-in-out infinite; /* Дыхание */
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 50px rgba(255, 0, 127, 0.2); }
+            50% { transform: scale(1.02); box-shadow: 0 0 70px rgba(255, 0, 127, 0.4); }
+        }
+
+        .main-img {
+            width: 100%;
+            border-radius: 20px;
+            border: 1px solid var(--accent-pink);
+            margin-bottom: 20px;
+            filter: contrast(1.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            letter-spacing: 8px;
+            color: var(--accent-pink);
+            text-shadow: 0 0 20px var(--accent-pink);
+            margin: 10px 0;
+            text-transform: uppercase;
+        }
+
+        /* Ссылки */
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            width: 90%;
+            max-width: 450px;
+        }
+
+        .nav-item {
+            flex: 1;
+            background: var(--glass);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            transition: 0.4s;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-item:hover {
+            border-color: var(--accent-pink);
+            background: rgba(255, 0, 127, 0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(255, 0, 127, 0.3);
+        }
+
+        .nav-item span {
+            display: block;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            text-shadow: 0 0 10px var(--accent-pink);
+        }
+
+        /* Музыкальный плеер снизу */
+        .music-bar {
+            position: fixed;
+            bottom: 30px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 12px 25px;
+            border-radius: 50px;
+            border: 1px solid var(--accent-pink);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        #play-btn {
+            background: var(--accent-pink);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            color: white;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .music-text {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="particles"></div>
+
+    <div class="profile-container">
+        <div class="main-banner">
+            <img src="IMG_3693.jpeg" class="main-img" alt="Me">
+            <h1>Kissa</h1>
+            <p style="opacity: 0.6; letter-spacing: 2px;">VIBE & MUSIC</p>
+        </div>
+    </div>
+
+    <div class="nav-links">
+        <a href="https://music.yandex.ru/users/1470220291/playlists/3?ref_id=981C2BB5-FAC0-4496-A70E-47B9FC9660D8&utm_medium=copy_link" target="_blank" class="nav-item">
+            <span>🎵</span>
+            <label style="cursor: pointer;">Playlist</label>
+        </a>
+        <a href="https://t.me/sofix131" target="_blank" class="nav-item">
+            <span>📩</span>
+            <label style="cursor: pointer;">Contact</label>
+        </a>
+    </div>
+
+    <div class="music-bar">
+        <button id="play-btn">▶</button>
+        <a href="https://music.yandex.ru/users/1470220291/playlists/3?ref_id=981C2BB5-FAC0-4496-A70E-47B9FC9660D8&utm_medium=copy_link" target="_blank" class="music-text">Now Playing 🎧</a>
+        <audio id="bg-audio" loop>
+            <source src="my-track.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <script>
+        const audio = document.getElementById('bg-audio');
+        const btn = document.getElementById('play-btn');
+        let playing = false;
+
+        btn.addEventListener('click', () => {
+            if(!playing) {
+                audio.play();
+                btn.textContent = '⏸';
+            } else {
+                audio.pause();
+                btn.textContent = '▶';
+            }
+            playing = !playing;
+        });
+    </script>
+
+</body>
+</html>
